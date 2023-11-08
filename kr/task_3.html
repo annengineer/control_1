@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма решения алгоритмической задачи</title>
+    <table align="center" border=1 cellpadding="5" cellspacing="1" width="600px">
+     <script>
+        function verify() {
+    console.log("a, b, c , d, e")
+    let a = parseInt(elementA.value);
+    let b= parseInt(elementB.value);
+    let c = parseInt(elementC.value);
+    let d = parseInt(elementD.value);
+    let e = parseInt(elementE.value);
+    console.log(a, b, c , d, e)
+
+          if (e % 2 == 0 && e >= 10) {
+    a = e / 500;
+    b = (e - a * 500) / 100;
+    c = (e - a * 500 - b * 100)/ 10;
+    d = (e - a * 500 - b * 100 - c * 10)/ 2;
+   }
+    else {
+    a = 0;
+    b = 0;
+    c = 0;
+    d = 0;
+    }
+         if (e == a * 500 + b * 100 + c * 10 + d * 2) {
+         result = "Верный ответ"
+        document.getElementById("result").innerText = messageText + result;
+        document.getElementById('result').value = result;
+        check = true;
+         } else {
+        result = "Ответ неверный"
+        document.getElementById("result").innerText = messageText + result;
+        document.getElementById('result').value = result;
+        check = false;
+    }
+}
+         function send() {
+    if (check) {
+        let textCondition = document.getElementById('condition').innerText
+        document.getElementsByName('formulation')[0].value = textCondition;
+        document.getElementById('result').value = result;;
+        document.getElementById("UserEnter").submit();
+    } else {
+        alert("Есть недостатки. Повторите ввод")
+    }
+}
+
+function verify_send() {
+    verify();
+    send();
+}
+
+console.log(messageText)
+let result;
+let check = false;
+
+const elementA = document.getElementById("a");
+elementA.addEventListener('input', verify);
+
+const elementB = document.getElementById("b");
+elementB.addEventListener('keyup', verify);
+
+const elementC = document.getElementById("c");
+elementC.addEventListener('keyup', verify);
+
+const elementD = document.getElementById("d");
+elementD.addEventListener('keyup', verify);
+
+const elementE = document.getElementById("e");
+elementE.addEventListener('input', verify);
+
+const elementVerify = document.getElementById("verify");
+elementVerify.addEventListener('click', verify);
+
+const elementSend = document.getElementById("send");
+elementSend.addEventListener('click', send)
+
+ </script>
+<body>  <tr> <td><p>1006. Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно.</p>
+</td>
+</tr>
+<tr> <td><form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+    <ul>
+        <li>Внести данные в поисковик:  <input name="q" value="search"></li>
+        <li>Формулировка задачи <input name="formulation"  value="1006. Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно."></li>
+        <p>Сумма: <input id="e" type="number" value=1250> руб</input></p>
+        <p>Значение "купюра 500": <input id="a" type="number" value=500> руб</input></p>
+        <p>Значение "купюра 100": <input id="b" type="number" value=100> руб</input></p>
+        <p>Значение "купюра 10": <input id="c" type="number" value=10> руб</input></p>
+        <p>Значение "монета 2": <input id="d" type="number" value=2> руб</input></p>
+        <li>результат решения: <input name="result" value="не определен"></li>
+        <li>Действие 1: <input id="verify" type="button" value="Проверить"></li>
+        <li>Действие 2: <input id="send" type="button" value="Отправить"></li>
+    </ul>
+</form>
+ </td>
+</tr>
+ <tr><td>
+     <button onclick="">Результаты вычислений: </button>
+     <p id="result"> </p><div id="result"></div>
+     </td>
+</tr>
+</head>
+</body>
+<body>
+
+</table>
+</body>
+</body>
+</html>

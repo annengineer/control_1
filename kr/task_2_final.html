@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение алгоритмической задачи</title>
+</head>
+<body>
+<table align="center" border=1 cellpadding="5" cellspacing="1" width="600px">
+
+    <tr>
+        <td align="center"><b>Решение алгоритмической задачи</b></td>
+    </tr>
+    <tr>
+        <td>Перейти на главный сайт:<a href="..2023_BoWT/project/myproject.html" target="_self">--></a>
+        <p>Перейти на вторую страницу задачи: <a href="../kr/task_2_2_3.html" target="_self">>--></a>
+        <p>Увидеть код: <a href="../kr/task_1.js" target="_self">>--></a>
+        <p>Перейти на третью страницу задачи:<a href="../kr/task_3.html" target="_self">>--></a>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <!--Уникально содержание страницы-->
+             <p align="left"><b>1006</b>. Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно.</p>
+             <p><label for="moneyInput">Значение "SUM": <span id="sum">x</span></label></p>
+             <input type="number" id="moneyInput">
+             <p>Значение "купюра 1": <span id="count500">500 руб</span></p>
+             <p>Значение "купюра 2": <span id="count100">100 руб</span></p>
+             <p>Значение "купюра 3": <span id="count10">10 руб</span></p>
+             <p>Значение "монета": <span id="count2">2 руб</span></p>
+
+             <p><button onclick="changeMoney()">Результат: </b><span id="result"></span></button></p>
+             <div id="result"></div>
+        </td>
+</table>
+</body>
+<script>
+  function changeMoney() {
+   var sum = document.getElementById("moneyInput").value;
+   var result = "";
+
+   // Можно ли разменять?
+   if (sum % 2 != 0 || sum < 10) {
+    result = "Разменять нельзя";
+   } else {
+    var count500 = Math.floor(sum / 500);
+    sum -= count500 * 500;
+    var count100 = Math.floor(sum / 100);
+    sum -= count100 * 100;
+    var count10 = Math.floor(sum / 10);
+    sum -= count10 * 10;
+    var count2 = sum / 2;
+
+    result += "Значение (купюра 1): 500 руб.: " + count500 + "<br>";
+    result += "Значение (купюра 2): 100 руб.: " + count100 + "<br>";
+    result += "Значение (купюра 3): 10 руб.: " + count10 + "<br>";
+    result += "Значение (монета): 2 руб.: " + count2 + "<br>";
+   }
+   document.getElementById("result").innerHTML = result;
+  }
+ </script>
+
+</html>

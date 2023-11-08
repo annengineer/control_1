@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение алгоритммической задачи</title>
+</head>
+<body>
+ <label for="moneyInput">Введите сумму:</label>
+ <input type="number" id="moneyInput">
+ <button onclick="changeMoney()">Разменять</button>
+ <div id="result"></div>
+</body>
+
+            <!--Основа решения-->
+            <h3 align="center">Решение алгоритмической задачи</h3>
+            <p id="task_content">1006. Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно.</p>
+            <p><label for="moneyInput">Введите сумму:</label></p>
+            <input type="number" id="moneyInput">
+            <button onclick="changeMoney()">Разменять</button>
+            <div id="result"></div>
+
+
+            Значение A: <span id="a">22</span>
+            <p>Значение B: <span id="b">20</span></p>
+            <p>Значение C: <span id="c">33</span></p>
+            <p id="verify">Оценить</p>
+
+            <p>Результат: <span id="result"></span></p>
+
+
+<script> function changeMoney() {
+   var sum = document.getElementById("moneyInput").value;
+   var result = "";
+
+   // Можно ли разменять?
+   if (sum % 2 != 0 || sum < 10) {
+    result = "Разменять нельзя";
+   } else {
+    var count500 = Math.floor(sum / 500);
+    sum -= count500 * 500;
+    var count100 = Math.floor(sum / 100);
+    sum -= count100 * 100;
+    var count10 = Math.floor(sum / 10);
+    sum -= count10 * 10;
+    var count2 = sum / 2;
+
+    result += "500 руб.: " + count500 + "<br>";
+    result += "100 руб.: " + count100 + "<br>";
+    result += "10 руб.: " + count10 + "<br>";
+    result += "2 руб.: " + count2 + "<br>";
+   }
+   document.getElementById("result").innerHTML = result;
+  }</script>
+</body>
+</html>
+</html>
