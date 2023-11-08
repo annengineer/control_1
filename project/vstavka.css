@@ -1,0 +1,8 @@
+btn {
+                                    display: inline-block; /* Строчно-блочный элемент */
+                                    background: #204e69; /* Светло-голубой цвет фона */
+                                    color: #fff; /* Белый цвет текста */
+                                    padding: 1rem 1.5rem; /* Поля вокруг текста */
+                                    text-decoration: none; /* Убрала подчеркивание */
+                                    border-radius: 10px; /* Скругление */
+                                   }
